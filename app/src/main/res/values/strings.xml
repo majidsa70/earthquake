@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Earthquake</string>
+    <string name="title_reports">reports</string>
+    <string name="countryFlagDes">countryFlag</string>
+    <string name="showMore">See all</string>
+    <string name="nearRowTitle">Near you</string>
+    <string name="recentRowTitle">Most recent</string>
+    <string name="biggestRowTitle">The biggest</string>
+    <string name="title_filter">filter</string>
+
+</resources>

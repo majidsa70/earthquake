@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_reports">
+
+    <fragment
+        android:id="@+id/navigation_reports"
+        android:name="ir.sadeghi.earthquake.ui.reports.ReportsFragment"
+        android:label="@string/title_reports"
+        tools:layout="@layout/fragment_reports">
+        <action
+            android:id="@+id/action_navigation_reports_to_navigation_details"
+            app:destination="@id/navigation_details">
+            <argument
+                android:name="earthquake"
+                app:argType="ir.sadeghi.earthquake.data.entitiy.FeaturesItem"
+                app:nullable="true" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_reports_to_earthquakeListFragment"
+            app:destination="@id/earthquakeListFragment">
+            <argument
+                android:name="listType"
+                app:argType="string"
+
+                app:nullable="true" />
+
+            <argument
+                android:name="latitude"
+                android:defaultValue="0L"
+                app:argType="long" />
+
+            <argument
+                android:name="longitude"
+                android:defaultValue="0L"
+                app:argType="long" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="ir.sadeghi.earthquake.ui.details.DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_reports"
+            app:destination="@id/navigation_reports" />
+
+
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_details"
+            app:destination="@id/navigation_details">
+            <argument
+                android:name="earthquake"
+                app:argType="ir.sadeghi.earthquake.data.entitiy.FeaturesItem"
+                app:nullable="true" />
+        </action>
+
+        <action
+            android:id="@+id/action_navigation_details_to_earthquakeListFragment"
+            app:destination="@id/earthquakeListFragment">
+            <argument
+                android:name="listType"
+                app:argType="string"
+
+                app:nullable="true" />
+
+            <argument
+                android:name="latitude"
+                android:defaultValue="0L"
+                app:argType="long" />
+
+            <argument
+                android:name="longitude"
+                android:defaultValue="0L"
+                app:argType="long" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/earthquakeListFragment"
+        android:name="ir.sadeghi.earthquake.ui.earthquakeList.EarthquakeListFragment"
+        android:label="EarthquakeListFragment">
+        <action
+            android:id="@+id/action_earthquakeListFragment_to_navigation_details"
+            app:destination="@id/navigation_details">
+            <argument
+                android:name="earthquake"
+                app:argType="ir.sadeghi.earthquake.data.entitiy.FeaturesItem"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+</navigation>
